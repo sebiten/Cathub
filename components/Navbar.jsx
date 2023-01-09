@@ -3,8 +3,8 @@ import Link from "next/link";
 
 function Navbar() {
   return (
-    <nav className="bg-[#615375] p-2">
-      <div className="flex items-center">
+    <nav className="bg-[#615375] p-4">
+      <div className="flex items-center w-full">
         <Link
           href="/"
           className="text-white font-bold items-start flex flex-col justify-center uppercase font-mono text-2xl"
@@ -20,17 +20,15 @@ function Navbar() {
             Cat<span className="text-black font-bold">hub</span>
           </h1>
         </Link>
-      </div>
-      <div className="flex flex-row">
-        <ul className="flex gap-4 text-white">
-          <li>
-            <Link href="/">Home</Link>
-          </li>
-          <li>
-            <Link href="/info">Info</Link>
-          </li>
-        </ul>
-      </div>
+          <ul className="flex gap-4 mx-auto text-white font-bold">
+            <li>
+              <Link href="/">Home</Link>
+            </li>
+            <li>
+              <Link href="/info">Favourites</Link>
+            </li>
+          </ul>
+        </div>
     </nav>
   );
 }
