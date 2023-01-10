@@ -1,17 +1,21 @@
 import Image from "next/image";
+import Filter from "../components/Filter";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+
+
+
 export default function Home({ data }) {
   return (
     <div>
       <Navbar />
       <div>
-        <p>Here are some cats:</p>
+        <Filter/>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-2">
+      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {data.map((cat) => (
           <div
-            className="w-full h-64 bg-gray-200 rounded-md shadow-md bg-cover object-cover"
+            className="w-full h-full bg-gray-200 rounded-md shadow-md bg-cover object-cover"
             key={cat.id}
           >
             <Image
@@ -28,7 +32,7 @@ export default function Home({ data }) {
 }
 export async function getStaticProps() {
   const res = await fetch(
-    "https://api.thecatapi.com/v1/images/search?limit=25"
+    "https://dog.ceo/api/breed/images"
   );
   const data = await res.json();
   return {

@@ -8,7 +8,7 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn2.thecatapi.com',
+        hostname: 'images.dog.ceo',
         port: '',
         pathname: '/images/**',
       },
