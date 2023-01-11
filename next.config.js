@@ -8,9 +8,9 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'via.placeholder.com',
+        hostname: 'images.dog.ceo',
         port: '',
-        pathname: '/images/**',
+        pathname: '/breeds/**',
       },
     ],
   },

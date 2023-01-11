@@ -1,41 +1,48 @@
 import Image from "next/image";
-import Filter from "../components/Filter";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import { useState } from "react";
 
+export default function Home({ data }) {
+  const [search, setSearch] = useState("");
 
-
-export default function Home({data}) {
   console.log(data);
   return (
     <div>
       <Navbar />
       <div>
-        <Filter/>
+        <input
+          type="text"
+          className="border bg-slate-200 border-gray-400 rounded w-full p-2"
+          placeholder="Search your favorite breed"
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        {data.map((item) => (
-          <div className="p-2" key={message}>
-            <Image
-              src={message}
-              alt="Picture of the author"
-              width={500}
-              height={500}
-            />
-
-
+      <div className="grid grid-cols-3 object-cover bg-cover">
+        {data.message.map((item, index) => {
+          return (
+            <div className=""key={index}>
+              <Image
+                src={item}
+                alt="Picture of theuthor"
+                width={500}
+                height={1000}
+              />
+            </div>
+          );
+        }
+        )}
       </div>
-        ))}
     </div>
-    </div>
-
   );
 }
-
-export const getStaticProps = async () => {
-  const res = await fetch("https://dog.ceo/api/breed/hound/images");
+export async function getStaticProps() {
+  const res = await fetch(`https://dog.ceo/api/breed/hound/images`);
   const data = await res.json();
   return {
-    props: { data },
+    props: {
+      data,
+    }, // will be passed to the page component as props
   };
 }
