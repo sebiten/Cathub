@@ -10,14 +10,14 @@ function Navbar() {
           className="text-white font-bold items-start flex flex-col justify-center uppercase font-mono text-2xl"
         >
           <Image
-            src="/cathub.png"
+            src="/dog.png"
             width={55}
             height={55}
             alt="logo"
             className="mx-auto"
           />
           <h1>
-            Cat<span className="text-black font-bold">hub</span>
+            Dog<span className="text-black font-bold">hub</span>
           </h1>
         </Link>
           <ul className="flex gap-4 mx-auto text-white font-bold">
