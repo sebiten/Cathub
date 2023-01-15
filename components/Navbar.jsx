@@ -20,12 +20,17 @@ function Navbar() {
             Dog<span className="text-black font-bold">hub</span>
           </h1>
         </Link>
-          <ul className="flex gap-4 mx-auto text-white font-bold">
+          <ul className="flex gap-4 mx-auto text-white font-bold ">
             <li>
-              <Link href="/">Home</Link>
+              <Link
+              className="border-b-2 
+              hover: border-purple-500 transition duration-300 ease-in-out"
+              href="/">Home</Link>
             </li>
             <li>
-              <Link href="/info">Favourites</Link>
+              <Link 
+              className="border-b-2 hover:border-purple-500 transition duration-300 ease-in-out hover:text-blac"
+              href="/info">Favourites</Link>
             </li>
           </ul>
         </div>
