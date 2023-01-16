@@ -21,6 +21,7 @@ export const DogsProvider = ({ children }) => {
     setSearched(false);
     fetchDogData();
   }, []);
+
   const searchForDog = async () => {
     try {
       const res = await fetch(
@@ -32,6 +33,17 @@ export const DogsProvider = ({ children }) => {
       console.error(error);
     }
   };
+
+  const getSingleDog = async (id) => {
+    try {
+      const res = await fetch(`https://api.thedogapi.com/v1/breeds/${id}`);
+      const data = await res.json();
+      setDogs(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,6 +59,8 @@ export const DogsProvider = ({ children }) => {
         text,
         searched,
         handleSubmit,
+        setText,
+        getSingleDog,
       }}
     >
       {children}

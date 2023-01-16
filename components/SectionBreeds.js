@@ -12,7 +12,7 @@ function SectionBreeds() {
         style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}
       >
         {dogs.map((dog) => (
-          <Link href="/" key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4">
+          <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4">
             <div className="flex justify-center h-56 w-64 object-cover">
               <Image
                 src={dog.image.url}
