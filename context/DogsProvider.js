@@ -7,6 +7,34 @@ export const DogsProvider = ({ children }) => {
   const [text, setText] = useState("");
   const [searched, setSearched] = useState(false);
 
+   const getStaticPaths = async () => {
+    const res = await fetch("https://api.thedogapi.com/v1/breeds");
+    const data = await res.json();
+  
+    const paths = data.map((dog) => {
+      return {
+        params: { breed: dog.name.toString() },
+      };
+    });
+  
+    return {
+      paths,
+      fallback: false,
+    };
+  };
+  
+   const getStaticProps = async (context) => {
+    const breed = context.params.breed;
+    const res = await fetch(
+      `https://api.thedogapi.com/v1/breeds/search?q=${breed}`
+    );
+    const data = await res.json();
+  
+    return {
+      props: { dog: data[0] },
+    };
+  };
+
   useEffect(() => {
     const fetchDogData = async () => {
       try {
@@ -61,6 +89,8 @@ export const DogsProvider = ({ children }) => {
         handleSubmit,
         setText,
         getSingleDog,
+        getStaticPaths,
+        getStaticProps,
       }}
     >
       {children}
