@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useDogs from "../hooks/useDogs";
+import Navbar from "./Navbar";
 
 function SectionBreeds() {
   const { dogs, text } = useDogs();
@@ -12,7 +13,7 @@ function SectionBreeds() {
         style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}
       >
         {dogs.map((dog) => (
-          <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4">
+          <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4 hover:scale-105">
             <div className="flex justify-center h-56 w-64 object-cover">
               <Image
                 src={dog.image.url}
@@ -31,21 +32,6 @@ function SectionBreeds() {
             </div>
             <div className="flex justify-center">
               <p className="text-gray-500">{dog.origin}</p>
-            </div>
-            <div className="flex justify-center">
-              <p className="text-gray-500">{dog.life_span}</p>
-            </div>
-            <div className="flex justify-center">
-              <p className="text-gray-500">{dog.weight.metric}</p>
-            </div>
-            <div className="flex justify-center">
-              <p className="text-gray-500">{dog.height.metric}</p>
-            </div>
-            <div className="flex justify-center">
-              <p className="text-gray-500">{dog.bred_for}</p>
-            </div>
-            <div className="flex justify-center">
-              <p className="text-gray-500">{dog.breed_group}</p>
             </div>
           </Link>
         ))}

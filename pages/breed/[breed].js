@@ -1,3 +1,4 @@
+import OtherImages from "../../components/OtherImages";
 import SingleBreed from "../../components/SingleBreed";
 
 export const getStaticPaths = async () => {
@@ -21,14 +22,17 @@ export const getStaticProps = async (context) => {
     `https://api.thedogapi.com/v1/breeds/search?q=${breed}`
   );
   const data = await res.json();
-
   return {
     props: { dog: data[0] },
   };
 };
 
+
 export default function Breed({ dog }) {
+
+  console.log(dog);
   return (
+    <>
     <SingleBreed
       name={dog.name}
       temperament={dog.temperament}
@@ -40,5 +44,10 @@ export default function Breed({ dog }) {
       description={dog.description}
       breedfor={dog.breed_for}
     ></SingleBreed>
+    <OtherImages
+      id={dog.id}
+      name={dog.name}
+    />
+    </>
   );
 }
