@@ -10,7 +10,7 @@ export default function FavoriteImage({ breed }) {
   return (
     <div className="relative">
       <svg
-        className="absolute top-0 right-0 m-2 cursor-pointer"
+        className="absolute bottom-0  right-0 m-2 cursor-pointer"
         onClick={handleClick}
         width="24"
         height="24"

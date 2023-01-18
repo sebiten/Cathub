@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import useDogs from "../hooks/useDogs";
+import FavoriteImage from "./FavBreed";
 import Navbar from "./Navbar";
 
 function SectionBreeds() {
@@ -9,11 +10,11 @@ function SectionBreeds() {
   return (
     <div>
       <section
-        className="grid"
+        className="grid user-select-none "
         style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}
       >
         {dogs.map((dog) => (
-          <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4 hover:scale-105">
+          <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4 select-none hover:scale-105">
             <div className="flex justify-center h-56 w-64 object-cover">
               <Image
                 src={dog.image.url}
@@ -36,6 +37,7 @@ function SectionBreeds() {
           </Link>
         ))}
       </section>
+
     </div>
   );
 }
