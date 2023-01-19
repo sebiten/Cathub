@@ -6,20 +6,29 @@ import Navbar from "../components/Navbar";
 import SectionBreeds from "../components/SectionBreeds";
 
 export default function Home() {
+
+  const [search, setSearch] = useState("");
   
   return (
     
         <div>
       <div>
       <Navbar />
-      <div>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setSearch("");
+        }
+      }
+      >
         <input
           type="text"
           className="border bg-slate-200 border-gray-400 rounded w-full p-2"
           placeholder="Search your favorite breed"
+          value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-      </div>
+      </form>
     </div>
         <SectionBreeds/>
       </div>    
