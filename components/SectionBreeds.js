@@ -15,11 +15,11 @@ function SectionBreeds() {
       >
         {dogs.map((dog) => (
           <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4 select-none hover:scale-105">
-            <div className="flex justify-center h-56 w-64 object-cover">
+            <div className="flex justify-center h-56 w-64 object-cover mx-auto">
               <Image
                 src={dog.image.url}
                 alt={dog.name}
-                className="rounded-md h-56 w-64 object-cover"
+                className="rounded-md h-56 w-64 object-cover "
                 width={300}
                 height={300}
 

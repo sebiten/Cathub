@@ -20,20 +20,28 @@ function Navbar() {
             Dog<span className="text-black font-bold">hub</span>
           </h1>
         </Link>
-          <ul className="flex gap-4 mx-auto text-white font-bold ">
-            <li>
-              <Link
-              className="border-b-2 
-              hover: border-purple-500 transition duration-300 ease-in-out"
-              href="/">Home</Link>
-            </li>
-            <li>
-              <Link 
+        <ul className="flex gap-4 mx-auto text-white font-bold ">
+          <li>
+            <Link
+              className="border-b-2 hover:border-purple-500 transition duration-300 ease-in-out"
+              href="/"
+              onClick={() => {
+                window.location.reload();
+              }}
+            >
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link
               className="border-b-2 hover:border-purple-500 transition duration-300 ease-in-out hover:text-blac"
-              href="/info">Favourites</Link>
-            </li>
-          </ul>
-        </div>
+              href="/info"
+            >
+              Favourites
+            </Link>
+          </li>
+        </ul>
+      </div>
     </nav>
   );
 }

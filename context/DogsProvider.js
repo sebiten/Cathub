@@ -4,11 +4,11 @@ export const DogsContext = createContext();
 
 export const DogsProvider = ({ children }) => {
   const [dogs, setDogs] = useState([]);
-  const [text, setText] = useState("");
   const [searched, setSearched] = useState(false);
   const [breed, setBreed] = useState("");
-
-  
+  const [results, setResults] = useState([]);
+  const [search, setSearch] = useState("");
+  const [text, setText] = useState("");
 
   useEffect(() => {
     const fetchDogData = async () => {
@@ -24,13 +24,6 @@ export const DogsProvider = ({ children }) => {
     setSearched(false);
     fetchDogData();
   }, []);
-
- 
-
-
-
-
-
   const searchForDog = async () => {
     try {
       const res = await fetch(
@@ -54,12 +47,25 @@ export const DogsProvider = ({ children }) => {
   };
 
 
+  // Search handler
+  useEffect(() => {
+    async function fetchBreeds() {
+      const res = await fetch(
+        `https://api.thedogapi.com/v1/breeds/search?q=${search}`
+      );
+      const data = await res.json();
+      setResults(data);
+      console.log(data);
+    }
+    setSearched(false);
+    fetchBreeds();
+  }, [search]);
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    searchForDog();
     setSearched(true);
   };
+
 
   return (
     <DogsContext.Provider
@@ -70,6 +76,13 @@ export const DogsProvider = ({ children }) => {
         handleSubmit,
         setText,
         getSingleDog,
+        searchForDog,
+        breed,
+        setBreed,
+        results,
+        search,
+        setSearch,
+        searched,
       }}
     >
       {children}
