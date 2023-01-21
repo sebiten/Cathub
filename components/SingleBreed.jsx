@@ -2,6 +2,7 @@ import Image from "next/image";
 import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import { useState } from "react";
+import Link from "next/link";
 
 
 
@@ -14,10 +15,6 @@ function SingleBreed({name,image,temperament,life_span,origin,breedfor,descripti
   };
   const [isFavorited, setIsFavorited] = useState(false);
   const [favBreeds, setFavBreeds] = useState([]);
-  
-
-
-
   return (
     <>
       <div>
@@ -30,7 +27,10 @@ function SingleBreed({name,image,temperament,life_span,origin,breedfor,descripti
           width={500}
           height={500}
           className="rounded-lg"
+          onClick={() => setIsOpen(true)}
         />
+       <div>
+    </div>
         <div className="flex flex-col">
           <div className="flex justify-center flex-col items-center">
             <h1 className="text-center text-3xl font-bold uppercase my-5">
@@ -44,11 +44,10 @@ function SingleBreed({name,image,temperament,life_span,origin,breedfor,descripti
           </div>
           
           <div className="flex item-center justify-center gap-8 mt-6">
-            <button className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
-            onClick={handleClick}
-
-            >Add to favourites</button>
-            <button className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">More information</button>
+            <Link className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              href={`https://en.wikipedia.org/wiki/${name}`}
+              target="_blank"
+            >More information</Link>
           </div>
         </div>
       </div>
