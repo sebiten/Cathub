@@ -1,4 +1,3 @@
-import OtherImages from "../../components/OtherImages";
 import SingleBreed from "../../components/SingleBreed";
 
 export const getStaticPaths = async () => {
@@ -30,7 +29,7 @@ export const getStaticProps = async (context) => {
 
 export default function Breed({ dog }) {
 
-  console.log(dog);
+  const { name, temperament, origin, life_span, weight, height, image, description, breedfor } = dog;
   return (
     <>
     <SingleBreed
@@ -44,10 +43,15 @@ export default function Breed({ dog }) {
       description={dog.description}
       breedfor={dog.breed_for}
     ></SingleBreed>
-    <OtherImages
-      id={dog.id}
-      name={dog.name}
-    />
+    <h1>More images</h1>
+    {dog.images.map((image) => (
+      <div key={image.id}>
+        <img src={image.url} alt={image.id} />
+      </div>
+    ))}
+
+        
     </>
+
   );
 }
