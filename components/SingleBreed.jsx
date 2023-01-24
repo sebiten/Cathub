@@ -6,15 +6,9 @@ import Link from "next/link";
 
 
 
-function SingleBreed({name,image,temperament,life_span,origin,breedfor,description,width,height,}) 
+function SingleBreed({name,image,temperament,life_span,origin,breedfor,description,width,height, breed_group }) 
 {
-  const handleClick = (e) => {
-    e.preventDefault();
-    setFavBreeds([name]);
-    console.log(favBreeds);
-  };
-  const [isFavorited, setIsFavorited] = useState(false);
-  const [favBreeds, setFavBreeds] = useState([]);
+
   return (
     <>
       <div>
@@ -36,12 +30,39 @@ function SingleBreed({name,image,temperament,life_span,origin,breedfor,descripti
             <h1 className="text-center text-3xl font-bold uppercase my-5">
               {name}
             </h1>
-            <p className="text-lg w-full">Temperament: {temperament}</p>
+            <p className="text-lg w-full"><span className="font-bold">Temperament:</span> {temperament}</p>
             <p className="text-lg w-full">
-              {origin ? `Origin: ${origin}` : ""}
+              <span className="font-bold">
+              {origin ? `Origin: ` : ""}
+              </span>
+              {origin}
             </p>
-            <p className="text-lg w-full">Life time:{life_span}</p>
-          </div>
+            <p className="text-lg w-full">
+              <span className="font-bold">
+              {life_span ? `Life span: ` : ""}
+              </span>
+              {life_span}
+            </p>
+            <p className="text-lg w-full">
+              <span className="font-bold">
+              {breedfor ? `Breed for: ` : ""}
+              </span>
+              {breedfor}
+            </p>
+            <p className="text-lg w-full">
+              <span className="font-bold">
+              {breed_group ? `Breed group: ` : ""}
+              </span>
+              {breed_group}
+            </p>
+            <p className="text-lg w-full">
+              <span className="font-bold">
+              {description ? `Description: ` : ""}
+              </span>
+              {description}
+            </p>
+           
+            </div>
           
           <div className="flex item-center justify-center gap-8 mt-6">
             <Link className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"

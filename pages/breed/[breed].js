@@ -1,3 +1,4 @@
+import OtherImages from "../../components/OtherImages";
 import SingleBreed from "../../components/SingleBreed";
 
 export const getStaticPaths = async () => {
@@ -29,27 +30,25 @@ export const getStaticProps = async (context) => {
 
 export default function Breed({ dog }) {
 
-  const { name, temperament, origin, life_span, weight, height, image, description, breedfor } = dog;
+  const { name, temperament, origin, life_span, weight, height, image, description, bred_for, reference_image_id, breed_group, id } = dog;
   return (
     <>
     <SingleBreed
-      name={dog.name}
-      temperament={dog.temperament}
-      origin={dog.origin}
-      life_span={dog.life_span}
-      weight={dog.weight.imperial}
-      height={dog.height.imperial}
-      image={dog.reference_image_id}
-      description={dog.description}
-      breedfor={dog.breed_for}
+      name={name}
+      temperament={temperament}
+      origin={origin}
+      life_span={life_span}
+      weight={weight.imperial}
+      height={height.imperial}
+      image={reference_image_id}
+      description={description}
+      breedfor={bred_for}
+      breedgroup={breed_group}
     ></SingleBreed>
-    <h1>More images</h1>
-    {dog.images.map((image) => (
-      <div key={image.id}>
-        <img src={image.url} alt={image.id} />
-      </div>
-    ))}
-
+      <OtherImages
+        id={id}
+        name={name}
+      />
         
     </>
 

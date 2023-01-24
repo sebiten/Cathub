@@ -25,19 +25,17 @@ function Navbar() {
             <Link
               className="border-b-2 hover:border-purple-500 transition duration-300 ease-in-out"
               href="/"
-              onClick={() => {
-                window.location.reload();
-              }}
             >
               Home
             </Link>
           </li>
           <li>
             <Link
+            target={"_blank"}
               className="border-b-2 hover:border-purple-500 transition duration-300 ease-in-out hover:text-blac"
-              href="/info"
+              href="https://dog.ceo/dog-api/documentation/breed"
             >
-              Favourites
+              API
             </Link>
           </li>
         </ul>
