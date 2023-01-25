@@ -1,20 +1,21 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import useDogs from "../hooks/useDogs";
 import FavoriteImage from "./FavBreed";
 import Navbar from "./Navbar";
 
 function SectionBreeds() {
+  const {isDarkMode, setIsDarkMode, toggleDarkMode} = useDogs();
   const { dogs, text } = useDogs();
   return (
     <div>
       <section
-        className="grid user-select-none "
+        className={`grid ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}
         style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}
       >
         {dogs.map((dog) => (
-          <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-white rounded-lg shadow-lg p-4 m-4 select-none hover:scale-105">
+          <Link href={`/breed/${dog.name}`} key={dog.id} className="bg-gray-200 rounded-lg shadow-lg p-4 m-4 select-none hover:scale-105">
             <div className="flex justify-center h-56 w-64 object-cover mx-auto">
               <Image
                 src={dog.image.url}
