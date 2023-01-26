@@ -6,12 +6,12 @@ import FavoriteImage from "./FavBreed";
 import Navbar from "./Navbar";
 
 function SectionBreeds() {
-  const {isDarkMode, setIsDarkMode, toggleDarkMode} = useDogs();
   const { dogs, text } = useDogs();
   return (
     <div>
+      <h1 className="font-bold text-center text-2xl my-4 uppercase">List of breeds</h1>
       <section
-        className={`grid ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}
+        className='grid'
         style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}
       >
         {dogs.map((dog) => (
