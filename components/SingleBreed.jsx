@@ -16,16 +16,13 @@ function SingleBreed({
   height,
   breed_group,
 }) {
-  const {isDarkMode, setIsDarkMode, toggleDarkMode} = useDogs();
   return (
     <>
       <div>
         <Navbar />
       </div>
       <div
-        className={`grid object-center place-items-center mt-10 w-1/2 mx-auto p-4 py-8 bg-${
-          isDarkMode ? "black" : "white"
-        }`}
+        className='grid object-center place-items-center mt-10 w-1/2 mx-auto p-4 py-8'
       >
         <Image
           src={`https://cdn2.thedogapi.com/images/${image}.jpg`}
