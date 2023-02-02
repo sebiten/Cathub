@@ -15,12 +15,12 @@ function OtherImages({ id, name }) {
       });
   }, [id]);
   return (
-    <div className="mx-auto py-10">
-      <h1 className="w-1/2 mx-auto my-4 uppercase font-bold text-xl text-center">
+    <div className="mx-auto py-8">
+      <h1 className="w-1/2 mx-auto my-5 uppercase font-bold text-xl text-center">
         Other Images
       </h1>
       {loading && (
-        <h2 className="text-center font-bold text-xl mt-6">Loading...</h2>
+        <h2 className="text-center font-bold text-xl mt-5">Loading...</h2>
       )}
       <div className="w-1/2 mx-auto grid grid-cols-2 md:grid-cols-3 ">
         {images.slice(0, 3).map((image) => (
