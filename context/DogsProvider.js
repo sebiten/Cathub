@@ -10,12 +10,6 @@ export const DogsProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
 
-
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-  }
-
-
   useEffect(() => {
     const fetchDogData = async () => {
       try {
@@ -89,8 +83,6 @@ export const DogsProvider = ({ children }) => {
         search,
         setSearch,
         searched,
-        isDarkMode,
-        setIsDarkMode
       }}
     >
       {children}
