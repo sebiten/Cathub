@@ -1,7 +1,5 @@
 import Image from "next/image";
-import React, { useEffect } from "react";
 import Navbar from "./Navbar";
-import { useState } from "react";
 import Link from "next/link";
 
 function SingleBreed({

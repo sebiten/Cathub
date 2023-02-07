@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 import useDogs from "../hooks/useDogs";
-import FavoriteImage from "./FavBreed";
-import Navbar from "./Navbar";
 
 function SectionBreeds() {
   const { dogs, text } = useDogs();
