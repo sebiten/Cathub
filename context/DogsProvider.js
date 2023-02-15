@@ -9,6 +9,9 @@ export const DogsProvider = ({ children }) => {
   const [results, setResults] = useState([]);
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
+  const [favorito, setFavorito] = useState([]);
+  
+  
 
   useEffect(() => {
     const fetchDogData = async () => {
@@ -55,7 +58,6 @@ export const DogsProvider = ({ children }) => {
       );
       const data = await res.json();
       setResults(data);
-      console.log(data);
     }
     setSearched(false);
     fetchBreeds();
@@ -83,6 +85,8 @@ export const DogsProvider = ({ children }) => {
         search,
         setSearch,
         searched,
+        favorito,
+        setFavorito,
       }}
     >
       {children}

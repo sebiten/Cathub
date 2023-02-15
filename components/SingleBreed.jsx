@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Link from "next/link";
+import { useState } from "react";
+import useDogs from "../hooks/useDogs";
 
 function SingleBreed({
   name,
@@ -14,14 +16,18 @@ function SingleBreed({
   height,
   breed_group,
 }) {
+  const {favorito, setFavorito} = useDogs();
+
+  const handleFavoriteClick = () => {
+    setFavorito(name)
+  };
+
   return (
     <>
       <div>
         <Navbar />
       </div>
-      <div
-        className='grid object-center place-items-center mt-10 w-1/2 mx-auto p-4 py-8'
-      >
+      <div className="grid object-center place-items-center mt-10 w-1/2 mx-auto p-4 py-8">
         <Image
           src={`https://cdn2.thedogapi.com/images/${image}.jpg`}
           alt={name}
@@ -75,7 +81,11 @@ function SingleBreed({
             >
               More information
             </Link>
+            <button
+              onClick={handleFavoriteClick}
+            >Add to favorite</button>
           </div>
+
         </div>
       </div>
     </>

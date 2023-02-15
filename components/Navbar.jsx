@@ -42,6 +42,13 @@ function Navbar() {
           
             </Link>
           </li>
+          <li>
+            <Link
+              href='/favorite'
+            >
+              Favorite
+            </Link>
+          </li>
           <li className="">
             <Link
               className="uppercase text-black flex items-center justify-center gap-2 hover:text-white py-2 px-2 transition duration-300 ease-in-out"
