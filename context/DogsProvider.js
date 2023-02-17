@@ -10,8 +10,26 @@ export const DogsProvider = ({ children }) => {
   const [search, setSearch] = useState("");
   const [text, setText] = useState("");
   const [favorito, setFavorito] = useState([]);
-  
-  
+
+  function handleFavoriteClick(name) {
+    setFavorito([...favorito, name]);
+  }
+
+  useEffect(() => {
+    const favoritosGuardados = localStorage.getItem('favoritos');
+    if (favoritosGuardados) {
+      setFavorito(JSON.parse(favoritosGuardados));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('favoritos', JSON.stringify(favorito));
+  }, [favorito]);
+
+  function eliminarFavorito(nombre) {
+    setFavorito(favorito.filter((favorito) => favorito !== nombre));
+  }
+
 
   useEffect(() => {
     const fetchDogData = async () => {
@@ -49,7 +67,6 @@ export const DogsProvider = ({ children }) => {
     }
   };
 
-
   // Search handler
   useEffect(() => {
     async function fetchBreeds() {
@@ -67,7 +84,6 @@ export const DogsProvider = ({ children }) => {
     e.preventDefault();
     setSearched(true);
   };
-
 
   return (
     <DogsContext.Provider
@@ -87,6 +103,9 @@ export const DogsProvider = ({ children }) => {
         searched,
         favorito,
         setFavorito,
+        handleFavoriteClick,
+        eliminarFavorito,
+        
       }}
     >
       {children}

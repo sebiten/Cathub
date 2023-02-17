@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Navbar from "./Navbar";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useDogs from "../hooks/useDogs";
 
 function SingleBreed({
@@ -16,11 +16,13 @@ function SingleBreed({
   height,
   breed_group,
 }) {
-  const {favorito, setFavorito} = useDogs();
+  const {favorito, setFavorito, eliminarFavorito} = useDogs();
 
-  const handleFavoriteClick = () => {
-    setFavorito(name)
-  };
+ 
+  function handleFavoriteClick() {
+    setFavorito([...favorito, { name, image, temperament, life_span, origin, breedfor, description, width, height, breed_group }]);
+    
+  }
 
   return (
     <>
@@ -82,8 +84,11 @@ function SingleBreed({
               More information
             </Link>
             <button
+              className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
               onClick={handleFavoriteClick}
-            >Add to favorite</button>
+            >
+              Add to favorites
+            </button>
           </div>
 
         </div>
