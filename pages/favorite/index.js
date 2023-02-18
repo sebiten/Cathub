@@ -21,19 +21,21 @@ function FavoritesPage() {
     <>
       <Navbar />
       <h1 className="text-4xl text-center font-bold my-4">Favorites</h1>
-      <section className='grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4'
+      <section className='grid w-full h-full'
+        style={{ gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))" }}
         >
         {favorito.map((dog) => (
           <div
-            className=" justify-center items-center gap-2 border w-full bg-slate-200 p-4 rounded-md shadow-md "
+          className=' bg-gray-200 rounded-lg shadow-lg p-4 m-4 select-none'
+          style={{ gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))" }}
             key={dog?.id}
           >
             <Image
               src={`https://cdn2.thedogapi.com/images/${dog?.image}.jpg`}
               alt={name}
-              width={800}
-              height={500}
-              className="rounded-md sm:w-[600px] sm:h-[200px] lg:w-[600px] lg:h-[500px] xl:w-[800px] xl:h-[500px] "
+              width={300}
+              height={300}
+              className="rounded-md h-56 w-full object-cover mx-auto "
             />
             <div className="text-lg flex flex-col justify-start w-full">
               <p>
