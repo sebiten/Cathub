@@ -4,7 +4,7 @@ import useDogs from "../hooks/useDogs";
 
 function Navbar() {
   return (
-    <nav className="bg-[#6b4f92] p-4">
+    <nav className="bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-sky-600 p-4">
       <div className="flex items-center w-full">
         <Link
           href="/"
@@ -12,7 +12,7 @@ function Navbar() {
         >
           <Image
             src="/dog.png"
-            width={55}
+            width={85}
             height={55}
             alt="logo"
             className="mx-auto"
@@ -21,8 +21,8 @@ function Navbar() {
             Dog<span className="text-black font-bold">hub</span>
           </h1>
         </Link>
-        <ul className="flex justify-center items-center gap-2 text-white font-bold w-full">
-          <li className=" bg-white gap-2 bg-opacity-50 mx-auto rounded ">
+        <ul className="flex items-center justify-center gap-2 text-white font-bold w-full mx-auto mr-14">
+          <li className=" ">
             <Link
               className="uppercase text-black flex items-center justify-center gap-2 hover:text-white py-1 px-2 transition duration-300 ease-in-out"
               href="/"
@@ -44,9 +44,16 @@ function Navbar() {
           </li>
           <li>
             <Link
+            className="uppercase text-black flex items-center justify-center gap-2 hover:text-white py-2 px-2 transition duration-300 ease-in-out"
               href='/favorite'
             >
-              Favorite
+              <Image
+                src="/star.svg"
+                alt="heart-icon"
+                width={25}
+                height={30}
+              />
+             Favorites
             </Link>
           </li>
           <li className="">

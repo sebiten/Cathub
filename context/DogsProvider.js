@@ -11,25 +11,24 @@ export const DogsProvider = ({ children }) => {
   const [text, setText] = useState("");
   const [favorito, setFavorito] = useState([]);
 
-  function handleFavoriteClick(name) {
-    setFavorito([...favorito, name]);
-  }
 
+  function eliminarFavorito(name) {
+    setFavorito(favorito.filter((favorito) => favorito !== name));
+  }
+  function handleFavoritoClick(name) {
+    eliminarFavorito(name);
+  }
+  
   useEffect(() => {
-    const favoritosGuardados = localStorage.getItem('favoritos');
+    const favoritosGuardados = localStorage.getItem("favoritos");
     if (favoritosGuardados) {
       setFavorito(JSON.parse(favoritosGuardados));
     }
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('favoritos', JSON.stringify(favorito));
+    localStorage.setItem("favoritos", JSON.stringify(favorito));
   }, [favorito]);
-
-  function eliminarFavorito(nombre) {
-    setFavorito(favorito.filter((favorito) => favorito !== nombre));
-  }
-
 
   useEffect(() => {
     const fetchDogData = async () => {
@@ -103,9 +102,8 @@ export const DogsProvider = ({ children }) => {
         searched,
         favorito,
         setFavorito,
-        handleFavoriteClick,
         eliminarFavorito,
-        
+        handleFavoritoClick
       }}
     >
       {children}

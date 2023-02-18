@@ -17,11 +17,16 @@ function SingleBreed({
   breed_group,
 }) {
   const {favorito, setFavorito, eliminarFavorito} = useDogs();
-
+  const [isFavorited, setIsFavorited] = useState(false);
  
   function handleFavoriteClick() {
+    if (!isFavorited) {
+      setIsFavorited(true);
     setFavorito([...favorito, { name, image, temperament, life_span, origin, breedfor, description, width, height, breed_group }]);
-    
+    } else {
+      setIsFavorited(false);
+      eliminarFavorito(name);
+    }
   }
 
   return (
@@ -33,7 +38,7 @@ function SingleBreed({
         <Image
           src={`https://cdn2.thedogapi.com/images/${image}.jpg`}
           alt={name}
-          width={500}
+          width={600}
           height={500}
           className="rounded-lg"
           onClick={() => setIsOpen(true)}
@@ -77,17 +82,17 @@ function SingleBreed({
 
           <div className="flex item-center justify-center gap-8 mt-6">
             <Link
-              className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              className="text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-900"
               href={`https://en.wikipedia.org/wiki/${name}`}
               target="_blank"
             >
               More information
             </Link>
             <button
-              className="text-white bg-purple-700 hover:bg-purple-800 focus:outline-none focus:ring-4 focus:ring-purple-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"
+              className="text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-900"
               onClick={handleFavoriteClick}
             >
-              Add to favorites
+               {isFavorited ? 'Favorited!' : 'Add to favorites'}
             </button>
           </div>
 
