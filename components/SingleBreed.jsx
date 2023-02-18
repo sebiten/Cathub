@@ -16,19 +16,35 @@ function SingleBreed({
   height,
   breed_group,
 }) {
-  const {favorito, setFavorito, eliminarFavorito} = useDogs();
+  const { favorito, setFavorito, eliminarFavorito } = useDogs();
   const [isFavorited, setIsFavorited] = useState(false);
- 
+  const [favoritesList, setFavoritesList] = useState([]);
+
   function handleFavoriteClick() {
     if (!isFavorited) {
       setIsFavorited(true);
-    setFavorito([...favorito, { name, image, temperament, life_span, origin, breedfor, description, width, height, breed_group }]);
+      const newFavorite = {
+        name,
+        image,
+        temperament,
+        life_span,
+        origin,
+        breedfor,
+        description,
+        width,
+        height,
+        breed_group,
+      };
+      // Verificar si el elemento ya está en la lista de favoritos
+      if (!favoritesList.some((favorite) => favorite.name === name)) {
+        setFavoritesList([...favoritesList, newFavorite]);
+        setFavorito([...favorito, newFavorite]);
+      }
     } else {
       setIsFavorited(false);
       eliminarFavorito(name);
     }
   }
-
   return (
     <>
       <div>
@@ -89,13 +105,12 @@ function SingleBreed({
               More information
             </Link>
             <button
-              className="text-white bg-sky-700 hover:bg-sky-800 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-sky-600 dark:hover:bg-sky-700 dark:focus:ring-sky-900"
+              class="text-black bg-transparent hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-transparent dark:hover:bg-sky-700 dark:focus:ring-sky-900"
               onClick={handleFavoriteClick}
             >
-               {isFavorited ? 'Favorited!' : 'Add to favorites'}
+              {isFavorited ? "Favorited!" : "Add to favorites"}
             </button>
           </div>
-
         </div>
       </div>
     </>

@@ -4,7 +4,7 @@ import useDogs from "../hooks/useDogs";
 
 function Navbar() {
   return (
-    <nav className="bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-sky-600 p-4">
+    <nav className="bg-[radial-gradient(ellipse_at_right,_var(--tw-gradient-stops))] from-sky-400 to-sky-600 p-2">
       <div className="flex items-center w-full">
         <Link
           href="/"
