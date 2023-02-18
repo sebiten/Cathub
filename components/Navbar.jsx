@@ -12,7 +12,7 @@ function Navbar() {
         >
           <Image
             src="/dog.png"
-            width={85}
+            width={75}
             height={55}
             alt="logo"
             className="mx-auto"
@@ -21,7 +21,7 @@ function Navbar() {
             Dog<span className="text-black font-bold">hub</span>
           </h1>
         </Link>
-        <ul className="flex items-center justify-center gap-2 text-white font-bold w-full mx-auto mr-14">
+        <ul className="flex items-center justify-center gap-2 text-white font-bold w-full mx-auto">
           <li className=" ">
             <Link
               className="uppercase text-black flex items-center justify-center gap-2 hover:text-white py-1 px-2 transition duration-300 ease-in-out"
@@ -46,6 +46,7 @@ function Navbar() {
             <Link
             className="uppercase text-black flex items-center justify-center gap-2 hover:text-white py-2 px-2 transition duration-300 ease-in-out"
               href='/favorite'
+
             >
               <Image
                 src="/star.svg"
@@ -60,6 +61,9 @@ function Navbar() {
             <Link
               className="uppercase text-black flex items-center justify-center gap-2 hover:text-white py-2 px-2 transition duration-300 ease-in-out"
               href="https://github.com/sebiten"
+              target='_blank'
+
+
             >
               <Image
               src="/github.svg"
@@ -67,7 +71,7 @@ function Navbar() {
               width={25}
               height={30}
               />
-              Github
+             
             </Link>
           </li>
         </ul>

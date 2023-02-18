@@ -21,10 +21,11 @@ function FavoritesPage() {
     <>
       <Navbar />
       <h1 className="text-4xl text-center font-bold my-4">Favorites</h1>
-      <div className="grid grid-cols-3 ">
+      <section className='grid sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4'
+        >
         {favorito.map((dog) => (
           <div
-            className="flex flex-col justify-center items-center gap-2 border w-full bg-slate-200 p-4 rounded-md shadow-md "
+            className=" justify-center items-center gap-2 border w-full bg-slate-200 p-4 rounded-md shadow-md "
             key={dog?.id}
           >
             <Image
@@ -32,7 +33,7 @@ function FavoritesPage() {
               alt={name}
               width={800}
               height={500}
-              className="rounded-md w-[800px] h-[500px] "
+              className="rounded-md sm:w-[600px] sm:h-[200px] lg:w-[600px] lg:h-[500px] xl:w-[800px] xl:h-[500px] "
             />
             <div className="text-lg flex flex-col justify-start w-full">
               <p>
@@ -89,7 +90,7 @@ function FavoritesPage() {
             </div>
           </div>
         ))}
-      </div>
+      </section>
     </>
   );
 }
