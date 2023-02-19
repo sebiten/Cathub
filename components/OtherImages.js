@@ -22,7 +22,7 @@ function OtherImages({ id, name }) {
       {loading && (
         <h2 className="text-center font-bold text-xl mt-5">Loading...</h2>
       )}
-      <div className="w-1/2 mx-auto grid grid-cols-2 md:grid-cols-3 ">
+      <div className="w-full xl:w-1/2 mx-auto grid sm:grid-cols-2 grid-cols-1 md:grid-cols-3  gap-2">
         {images.slice(0, 3).map((image) => (
           <Image
             src={image.url}
@@ -30,7 +30,7 @@ function OtherImages({ id, name }) {
             key={image.id}
             width={300}
             height={300}
-            className="mx-auto h-56 w-64 object-cover rounded-xl shadow-md hover:shadow-xl transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-110"
+            className="mx-auto h-66 w-96 sm:h-72 sm:w-96 object-cover rounded-xl shadow-md"
           />
         ))}
       </div>
