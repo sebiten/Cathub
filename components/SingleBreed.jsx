@@ -130,6 +130,7 @@ function SingleBreed({
               More information
             </Link>
             <button
+            disabled={isFavorited}
               class="text-black bg-transparent hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 font-medium rounded-full text-sm px-5 py-2.5 text-center mb-2 dark:bg-transparent dark:hover:bg-sky-700 dark:focus:ring-sky-900"
               onClick={handleFavoriteClick}
             >
