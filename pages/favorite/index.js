@@ -20,7 +20,7 @@ function FavoritesPage() {
   return (
     <>
       <Navbar />
-      <h1 className="text-4xl text-center font-bold my-4">Favorites</h1>
+      <h1 className="text-4xl text-center font-bold my-6">Favorites</h1>
       <section className='grid w-full h-full'
         style={{ gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))" }}
         >
@@ -81,7 +81,7 @@ function FavoritesPage() {
                 className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded hover:shadow-lg transition duration-300 ease-in-out transform hover:-translate-y-1 hover:scale-105 w-full "
                 onClick={() => handleFavoritoClick(dog)}
               >
-                Eliminar de favoritos
+                Delete from favorites
               </button>
               <Link
                 href={`/breed/${dog?.name}`}
